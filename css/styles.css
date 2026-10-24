@@ -534,39 +534,134 @@ a {
     margin: 0;
     border-radius: 0;
     overflow: hidden;
-    display: grid;
-    place-items: center;
-    background: #10080b;
+    background: #12060c;
+    color: #fff;
+}
+
+.soon-word {
+    position: absolute;
+    z-index: 2;
+    left: 0;
+    right: 0;
+    top: 46%;
+    transform: translateY(-50%);
+    margin: 0;
+    padding: 0 2vw;
+    font-family: Anton, "Arial Narrow", Impact, sans-serif;
+    font-weight: 400;
+    font-size: clamp(3.2rem, 14vw, 13rem);
+    line-height: 0.78;
+    letter-spacing: 0.01em;
+    text-align: center;
+    text-transform: uppercase;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+    -webkit-text-stroke: 2px rgba(255, 255, 255, 0.92);
+    white-space: nowrap;
 }
 
 .soon img {
     position: absolute;
+    z-index: 0;
     inset: 0;
     width: 100%;
     height: 100%;
+    max-height: none;
     object-fit: cover;
-    object-position: center 18%;
+    object-position: 70% center;
 }
 
-.soon::before {
-    content: "";
+.soon-rail {
     position: absolute;
-    inset: 0;
-    background: linear-gradient(180deg, rgba(8, 4, 6, 0.12) 20%, rgba(8, 4, 6, 0.55) 100%);
+    z-index: 3;
+    top: 12%;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin: 0;
+    color: #fff;
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
 }
 
-.soon h2 {
-    position: relative;
-    z-index: 1;
-    font-family: "Playfair Display", serif;
-    font-style: italic;
+.soon-rail span {
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+}
+
+.soon-rail-left { left: 28px; }
+.soon-rail-right { right: 28px; }
+
+.soon-rail-left::before,
+.soon-rail-right::after {
+    content: "";
+    width: 1px;
+    height: 128px;
+    background: currentColor;
+}
+
+.soon-line {
+    position: absolute;
+    z-index: 3;
+    left: 3.2vw;
+    bottom: 11%;
+    margin: 0;
+    max-width: 24vw;
+    font-weight: 800;
+    font-size: clamp(1.35rem, 2.2vw, 2.45rem);
+    letter-spacing: -0.045em;
+    line-height: 0.92;
+}
+
+.soon-line span {
+    color: #fff;
+}
+
+.soon-line::after {
+    content: "";
+    display: block;
+    width: 36px;
+    height: 2px;
+    margin-top: 14px;
+    background: #fff;
+}
+
+.soon-note {
+    position: absolute;
+    z-index: 3;
+    right: 3.2vw;
+    bottom: 11%;
+    width: min(22vw, 170px);
+}
+
+.soon-kicker {
+    margin: 0;
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.72);
+}
+
+.soon-meta {
+    margin: 12px 0 0;
+    padding-top: 12px;
+    border-top: 1px solid rgba(255, 255, 255, 0.85);
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    line-height: 1.45;
+}
+
+.soon-small {
+    margin: 22px 0 0;
+    font-size: 0.82rem;
     font-weight: 500;
-    font-size: clamp(3.4rem, 8vw, 6.5rem);
-    letter-spacing: -0.03em;
-    line-height: 0.95;
-    text-align: center;
-    color: transparent;
-    -webkit-text-stroke: 1.5px rgba(246, 241, 242, 0.92);
+    line-height: 1.35;
+    color: rgba(255, 255, 255, 0.88);
 }
 
 :focus-visible {
@@ -704,9 +799,57 @@ a {
         gap: 14px 12px;
     }
 
-    .soon h2 {
-        font-size: clamp(2.6rem, 12vw, 4rem);
-        padding: 0 20px;
+    .soon-word {
+        top: 34%;
+        font-size: 13vw;
+        padding: 0 8px;
+    }
+
+    .soon img {
+        object-position: 74% 35%;
+    }
+
+    .soon-rail {
+        top: 8%;
+        font-size: 0.58rem;
+        letter-spacing: 0.18em;
+        gap: 8px;
+    }
+
+    .soon-rail-left { left: 10px; }
+    .soon-rail-right { right: 10px; }
+
+    .soon-rail-left::before,
+    .soon-rail-right::after {
+        height: 84px;
+    }
+
+    .soon-line {
+        left: 14px;
+        bottom: 16px;
+        max-width: 26%;
+        font-size: 1.05rem;
+    }
+
+    .soon-line::after {
+        width: 28px;
+        margin-top: 10px;
+    }
+
+    .soon-note {
+        right: 10px;
+        bottom: 16px;
+        width: 92px;
+    }
+
+    .soon-meta {
+        letter-spacing: 0.08em;
+        font-size: 0.64rem;
+    }
+
+    .soon-small {
+        margin-top: 12px;
+        font-size: 0.72rem;
     }
 
     .footer {
@@ -818,6 +961,25 @@ a {
 
     .footer {
         flex-direction: column;
+    }
+
+    .soon img {
+        object-position: 78% 30%;
+    }
+
+    .soon-line {
+        left: 10px;
+        max-width: 22%;
+        font-size: 0.98rem;
+    }
+
+    .soon-note {
+        right: 10px;
+        width: 22%;
+    }
+
+    .soon-meta {
+        letter-spacing: 0.04em;
     }
 }
 
